@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = (client, message) => {
     if (message.author.bot || message.channel.type === 'dm') return;
 
@@ -10,11 +12,19 @@ module.exports = (client, message) => {
 
     const cmd = client.commands.get(command) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
 
+	String.prototype.toProperCase = function () {
+		return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+	};
+
 	if (cmd) {
 		if (cmd.permissions) {
 			const authorPerms = message.channel.permissionsFor(message.author);
 			if (!authorPerms || !authorPerms.has(cmd.permissions)) {
-				return message.reply('You can not do this!');
+				const needPermsEmbed = new Discord.MessageEmbed()
+					.addField(`${client.emotes.error} - ${cmd.name.toProperCase()}`, `You do not have permission to do this!`)
+					.setColor('#0099ff');
+
+				return message.reply(needPermsEmbed);
 			}
 		}
 	}
