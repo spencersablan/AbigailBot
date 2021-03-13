@@ -2,3 +2,4 @@
 node_modules/
 abigailBot.bat
 config/bot.js
+.vscode/
