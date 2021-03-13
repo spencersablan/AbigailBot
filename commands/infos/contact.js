@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'contact',
     aliases: ['suggest','bug','report'],
@@ -5,7 +7,6 @@ module.exports = {
     utilisation: '{prefix}contact',
 
     execute(client, message) {
-        const Discord = require('discord.js');
         const ogMessage = message
 
         let contactEmbed = new Discord.MessageEmbed()

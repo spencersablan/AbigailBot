@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'roll',
     aliases: ['d'],
@@ -5,7 +7,6 @@ module.exports = {
 	utilisation: '{prefix}roll <number>',
 
     execute(client, message, args) {
-		const Discord = require('discord.js');
 		const amount = parseInt(args[0]);
 
 		function getRandInt(min, max) {

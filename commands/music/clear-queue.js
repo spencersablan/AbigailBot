@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'clear-queue',
     aliases: ['cq'],
@@ -5,8 +7,6 @@ module.exports = {
     utilisation: '{prefix}clear-queue',
 
     execute(client, message) {
-        const Discord = require('discord.js');
-
         const cqNotConnectedEmbed = new Discord.MessageEmbed()
             .addField(`${client.emotes.error} - Music`, `You're not in a voice channel!`)
             .setColor('#0099ff');

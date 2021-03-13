@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'ban',
     aliases: [],
@@ -6,8 +8,6 @@ module.exports = {
 	permissions: 'BAN_MEMBERS',
 
     execute(client, message, args) {
-        const Discord = require('discord.js');
-
         if (!message.mentions.users.size) {
 
             const banFailEmbed = new Discord.MessageEmbed()

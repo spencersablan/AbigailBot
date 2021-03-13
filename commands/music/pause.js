@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'pause',
     aliases: [],
@@ -5,8 +7,6 @@ module.exports = {
     utilisation: '{prefix}pause',
 
     execute(client, message) {
-        const Discord = require('discord.js');
-
         const pauseNotConnectedEmbed = new Discord.MessageEmbed()
             .addField(`${client.emotes.error} - Music`, `You're not in a voice channel!`)
             .setColor('#0099ff');

@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'filter',
     aliases: [],
@@ -5,8 +7,6 @@ module.exports = {
     utilisation: '{prefix}filter [filter name]',
 
     execute(client, message, args) {
-        const Discord = require('discord.js');
-
         const filterNotConnectedEmbed = new Discord.MessageEmbed()
             .addField(`${client.emotes.error} - Music`, `You're not in a voice channel!`)
             .setColor('#0099ff');

@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'play',
     aliases: ['p'],
@@ -5,8 +7,6 @@ module.exports = {
     utilisation: '{prefix}play [name/URL]',
 
     execute(client, message, args) {
-        const Discord = require('discord.js');
-
         const playNotConnectedEmbed = new Discord.MessageEmbed()
             .addField(`${client.emotes.error} - Music`, `You're not in a voice channel!`)
             .setColor('#0099ff');

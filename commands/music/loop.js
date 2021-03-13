@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'loop',
     aliases: ['lp', 'repeat'],
@@ -5,8 +7,6 @@ module.exports = {
     utilisation: '{prefix}loop <queue>',
 
     execute(client, message, args) {
-        const Discord = require('discord.js');
-
         const loopNotConnectedEmbed = new Discord.MessageEmbed()
             .addField(`${client.emotes.error} - Music`, `You're not in a voice channel!`)
             .setColor('#0099ff');

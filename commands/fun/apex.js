@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'apex',
     aliases: ['a'],
@@ -5,9 +7,6 @@ module.exports = {
 	utilisation: '{prefix}apex <character, inventory, gameplay>',
 
     execute(client, message, args) {
-
-		const Discord = require('discord.js');
-
 		function outputChallenge(chalText,chalCat) {
 			const outputEmbed = new Discord.MessageEmbed()
 				.setTitle('Apex Challenge')

@@ -1,3 +1,6 @@
+const { Client, MessageAttachment } = require('discord.js');
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'simp',
     aliases: ['sub','dono'],
@@ -7,8 +10,6 @@ module.exports = {
     execute(client, message) {
 		const data = [];
 		const { commands } = message.client;
-		const { Client, MessageAttachment } = require('discord.js');
-		const Discord = require('discord.js');
 		
 		const images = [
 			"https://i.imgur.com/PrQ0439.png",

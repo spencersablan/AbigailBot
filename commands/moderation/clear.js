@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'clear',
     aliases: ['purge','prune'],
@@ -6,7 +8,6 @@ module.exports = {
 	permissions: 'MANAGE_MESSAGES',
 
     execute(client, message, args) {
-		const Discord = require('discord.js');
         const amount = parseInt(args[0]) + 1;
 
 		if (isNaN(amount)) {

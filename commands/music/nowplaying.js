@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'nowplaying',
     aliases: ['np'],
@@ -5,11 +7,24 @@ module.exports = {
     utilisation: '{prefix}nowplaying',
 
     execute(client, message) {
-        if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
 
-        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`${client.emotes.error} - You are not in the same voice channel !`);
+        const notConnectedEmbed = new Discord.MessageEmbed()
+            .addField(`${client.emotes.error} - Music`, `You're not in a voice channel!`)
+            .setColor('#0099ff');
 
-        if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No music currently playing !`);
+        const sameVoiceChannelEmbed = new Discord.MessageEmbed()
+            .addField(`${client.emotes.error} - Music`, `You are not in the same voice channel!`)
+            .setColor('#0099ff');
+
+        const noMusicEmbed = new Discord.MessageEmbed()
+            .addField(`${client.emotes.error} - Music`, `No music currently playing!`)
+            .setColor('#0099ff');
+
+        if (!message.member.voice.channel) return message.channel.send(notConnectedEmbed);
+
+        if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(sameVoiceChannelEmbed);
+
+        if (!client.player.getQueue(message)) return message.channel.send(noMusicEmbed);
 
         const track = client.player.nowPlaying(message);
         const filters = [];
