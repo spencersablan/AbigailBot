@@ -3,14 +3,14 @@ module.exports = {
     //Rename this file to bot.js, and fill out the information below.
 
     emojis: {
-        off: '<:fail:818726868274118657>',
-        error: '<:error:818729713387962398>',
+        off: ':x:',
+        error: ':warning:',
         queue: ':bar_chart:',
-        music: '<:music:818735389992026134>',
-        success: '<:success:818726750829412393>',
-		character: '<:character:818714019018965026>',
-		inventory: '<:inventory:818712125329113098>',
-		gameplay: '<:gameplay:818713617456168970>',
+        music: ':musical_note:',
+        success: ':white_check_mark:',
+        character: ':grinning:',
+        inventory: ':handbag:',
+        gameplay: ':video_game:',
     },
 
     discord: {
