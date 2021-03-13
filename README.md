@@ -22,7 +22,7 @@ discord: {
 - `prefix`, the prefix that will be set to use the bot.
 - `activity`, the activity of the bot.
 
-Rename the file from bot.txt to bot.js.
+Rename the file from `bot.txt` to `bot.js.`
 
 In the console, type `npm install` to install all dependencies.
 
