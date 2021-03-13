@@ -27,5 +27,10 @@ module.exports = {
         otherContact: 'CHANNEL-ID',
     },
 
+    //Servers that can use private commands, add as many as needed.
+    guildOnly: [
+        'SERVER-ID',
+    ],
+
     filters: ['8D', 'gate', 'haas', 'phaser', 'treble', 'tremolo', 'vibrato', 'reverse', 'karaoke', 'flanger', 'mcompand', 'pulsator', 'subboost', 'bassboost', 'vaporwave', 'nightcore', 'normalizer', 'surrounding'],
 };

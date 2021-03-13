@@ -17,6 +17,16 @@ module.exports = (client, message) => {
 	};
 
 	if (cmd) {
+		if (cmd.private) {
+			if (!client.guildOnly.includes(message.guild.id)) {
+				const serverOnlyEmbed = new Discord.MessageEmbed()
+					.addField(`${client.emotes.error} - ${cmd.name.toProperCase()}`, `You can't use that command in this server!`)
+					.setColor('#0099ff');
+
+				return message.reply(serverOnlyEmbed);
+			}
+		}
+		
 		if (cmd.permissions) {
 			const authorPerms = message.channel.permissionsFor(message.author);
 			if (!authorPerms || !authorPerms.has(cmd.permissions)) {
