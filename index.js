@@ -8,6 +8,7 @@ const { Player } = require('discord-player');
 client.player = new Player(client);
 client.config = require('./config/bot');
 client.emotes = client.config.emojis;
+client.setChannels = client.config.channels;
 client.filters = client.config.filters;
 client.commands = new discord.Collection();
 

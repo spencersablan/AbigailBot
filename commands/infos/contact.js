@@ -59,8 +59,8 @@ module.exports = {
                                                             .addField(`Discord Suggestion:`, `${collected.first().content}`)
                                                             .setFooter(`${ogMessage.author.tag}`)
                                                             .setTimestamp();
-                                    
-                                                        const channel = await client.channels.fetch('819830540244484117')
+
+                                                        const channel = await client.channels.fetch(client.setChannels.discordSuggestions)
                                                         channel.send(embed1)
                                     
                                                         message.channel.send(successEmbed)
@@ -85,7 +85,7 @@ module.exports = {
                                                             .setFooter(`${ogMessage.author.tag}`)
                                                             .setTimestamp();
                                     
-                                                        const channel = await client.channels.fetch('819830589502783488')
+                                                        const channel = await client.channels.fetch(client.setChannels.botSuggestions)
                                                         channel.send(embed2)
                                     
                                                         message.channel.send(successEmbed)
@@ -110,7 +110,7 @@ module.exports = {
                                                             .setFooter(`${ogMessage.author.tag}`)
                                                             .setTimestamp();
                                     
-                                                        const channel = await client.channels.fetch('819830624009322527')
+                                                        const channel = await client.channels.fetch(client.setChannels.botBugReports)
                                                         channel.send(embed2)
                                     
                                                         message.channel.send(successEmbed)
@@ -135,7 +135,7 @@ module.exports = {
                                                             .setFooter(`${ogMessage.author.tag}`)
                                                             .setTimestamp();
                                     
-                                                        const channel = await client.channels.fetch('819830654719098930')
+                                                        const channel = await client.channels.fetch(client.setChannels.userReports)
                                                         channel.send(embed2)
                                     
                                                         message.channel.send(successEmbed)
@@ -160,7 +160,7 @@ module.exports = {
                                                             .setFooter(`${ogMessage.author.tag}`)
                                                             .setTimestamp();
                                     
-                                                        const channel = await client.channels.fetch('819830688152420382')
+                                                        const channel = await client.channels.fetch(client.setChannels.otherContact)
                                                         channel.send(embed2)
                                     
                                                         message.channel.send(successEmbed)

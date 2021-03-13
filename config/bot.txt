@@ -19,5 +19,13 @@ module.exports = {
         activity: 'ACTIVITY',
     },
 
+    channels: {
+        discordSuggestions: 'CHANNEL-ID',
+        botSuggestions: 'CHANNEL-ID',
+        botBugReports: 'CHANNEL-ID',
+        userReports: 'CHANNEL-ID',
+        otherContact: 'CHANNEL-ID',
+    },
+
     filters: ['8D', 'gate', 'haas', 'phaser', 'treble', 'tremolo', 'vibrato', 'reverse', 'karaoke', 'flanger', 'mcompand', 'pulsator', 'subboost', 'bassboost', 'vaporwave', 'nightcore', 'normalizer', 'surrounding'],
 };
