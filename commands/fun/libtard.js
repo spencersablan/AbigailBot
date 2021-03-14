@@ -19,7 +19,7 @@ module.exports = {
                 if (inputJson[0].data.children[0].data.post_hint === 'image') {
                     var outputMeme = new Discord.MessageEmbed()
                         .setTitle(`${inputJson[0].data.children[0].data.title}`)
-                        .setURL(inputJson[0].data.children[0].data.permalink)
+                        .setURL(`https://www.reddit.com${inputJson[0].data.children[0].data.permalink}`)
                         .setImage(inputJson[0].data.children[0].data.url_overridden_by_dest)
                         .setColor('#0099ff');
 
