@@ -5,6 +5,7 @@ module.exports = {
     aliases: ['lp', 'repeat'],
     category: 'Music',
     utilisation: '{prefix}loop <queue>',
+    doNotDm: true,
 
     execute(client, message, args) {
         const loopNotConnectedEmbed = new Discord.MessageEmbed()

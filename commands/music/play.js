@@ -5,6 +5,7 @@ module.exports = {
     aliases: ['p'],
     category: 'Music',
     utilisation: '{prefix}play [name/URL]',
+    doNotDm: true,
 
     execute(client, message, args) {
         const playNotConnectedEmbed = new Discord.MessageEmbed()

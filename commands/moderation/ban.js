@@ -6,6 +6,7 @@ module.exports = {
     category: 'Moderation',
     utilisation: '{prefix}ban [user]',
 	permissions: 'BAN_MEMBERS',
+    doNotDm: true,
 
     execute(client, message, args) {
         if (!message.mentions.users.size) {

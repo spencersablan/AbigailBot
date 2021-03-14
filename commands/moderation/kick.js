@@ -6,6 +6,7 @@ module.exports = {
     category: 'Moderation',
     utilisation: '{prefix}kick [user]',
 	permissions: 'KICK_MEMBERS',
+    doNotDm: true,
 
     execute(client, message, args) {
         const Discord = require('discord.js');

@@ -5,6 +5,7 @@ module.exports = {
     aliases: ['dc'],
     category: 'Music',
     utilisation: '{prefix}stop',
+    doNotDm: true,
 
     execute(client, message) {
         const stopNotConnectedEmbed = new Discord.MessageEmbed()

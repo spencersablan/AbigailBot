@@ -3,6 +3,7 @@ module.exports = {
     aliases: [],
     category: 'Infos',
     utilisation: '{prefix}react [custom emoji name]',
+	doNotDm: true,
 
     execute(client, message, args) {
 		const userEmoji = args[0];

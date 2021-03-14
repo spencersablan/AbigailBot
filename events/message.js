@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = (client, message) => {
-    if (message.author.bot || message.channel.type === 'dm') return;
+    //if (message.author.bot || message.channel.type === 'dm') return;
 
     const prefix = client.config.discord.prefix;
 
@@ -17,6 +17,17 @@ module.exports = (client, message) => {
 	};
 
 	if (cmd) {
+
+		if (cmd.doNotDm) {
+			if (message.author.bot || message.channel.type === 'dm') {
+				const doNotDmEmbed = new Discord.MessageEmbed()
+					.addField(`${client.emotes.error} - ${cmd.name.toProperCase()}`, `You can't use that command in DM's!`)
+					.setColor('#0099ff');
+
+				return message.reply(doNotDmEmbed);
+			}
+		}
+		
 		if (cmd.private) {
 			if (!client.guildOnly.includes(message.guild.id)) {
 				const serverOnlyEmbed = new Discord.MessageEmbed()

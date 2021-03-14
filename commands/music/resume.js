@@ -5,6 +5,7 @@ module.exports = {
     aliases: [],
     category: 'Music',
     utilisation: '{prefix}resume',
+    doNotDm: true,
 
     execute(client, message) {
         const resumeNotConnectedEmbed = new Discord.MessageEmbed()

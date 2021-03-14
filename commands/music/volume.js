@@ -5,6 +5,7 @@ module.exports = {
     aliases: [],
     category: 'Music',
     utilisation: '{prefix}volume [1-100]',
+    doNotDm: true,
 
     execute(client, message, args) {
         const volumeNotConnectedEmbed = new Discord.MessageEmbed()

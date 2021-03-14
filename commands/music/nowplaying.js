@@ -5,6 +5,7 @@ module.exports = {
     aliases: ['np'],
     category: 'Music',
     utilisation: '{prefix}nowplaying',
+    doNotDm: true,
 
     execute(client, message) {
 

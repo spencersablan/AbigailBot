@@ -5,6 +5,7 @@ module.exports = {
     aliases: [],
     category: 'Music',
     utilisation: '{prefix}queue',
+    doNotDm: true,
 
     execute(client, message) {
         const queueNotConnectedEmbed = new Discord.MessageEmbed()

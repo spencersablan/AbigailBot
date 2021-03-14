@@ -5,6 +5,7 @@ module.exports = {
     aliases: ['sk'],
     category: 'Music',
     utilisation: '{prefix}skip',
+    doNotDm: true,
 
     execute(client, message) {
         const skipNotConnectedEmbed = new Discord.MessageEmbed()

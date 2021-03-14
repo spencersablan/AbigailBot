@@ -5,6 +5,7 @@ module.exports = {
     aliases: ['sh'],
     category: 'Music',
     utilisation: '{prefix}shuffle',
+    doNotDm: true,
 
     execute(client, message) {
         const shuffleNotConnectedEmbed = new Discord.MessageEmbed()

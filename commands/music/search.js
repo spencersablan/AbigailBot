@@ -5,6 +5,7 @@ module.exports = {
     aliases: ['sr'],
     category: 'Music',
     utilisation: '{prefix}search [name/URL]',
+    doNotDm: true,
 
     execute(client, message, args) {
         const searchNotConnectedEmbed = new Discord.MessageEmbed()

@@ -5,6 +5,7 @@ module.exports = {
     aliases: [],
     category: 'Music',
     utilisation: '{prefix}pause',
+    doNotDm: true,
 
     execute(client, message) {
         const pauseNotConnectedEmbed = new Discord.MessageEmbed()

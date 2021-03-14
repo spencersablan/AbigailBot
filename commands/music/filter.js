@@ -5,6 +5,7 @@ module.exports = {
     aliases: [],
     category: 'Music',
     utilisation: '{prefix}filter [filter name]',
+    doNotDm: true,
 
     execute(client, message, args) {
         const filterNotConnectedEmbed = new Discord.MessageEmbed()

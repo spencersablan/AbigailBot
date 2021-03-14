@@ -6,6 +6,7 @@ module.exports = {
     category: 'Moderation',
     utilisation: '{prefix}clear [1-99]',
 	permissions: 'MANAGE_MESSAGES',
+	doNotDm: true,
 
     execute(client, message, args) {
         const amount = parseInt(args[0]) + 1;

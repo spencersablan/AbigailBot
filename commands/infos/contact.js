@@ -5,6 +5,7 @@ module.exports = {
     aliases: ['suggest','bug','report'],
     category: 'Infos',
     utilisation: '{prefix}contact',
+    doNotDm: true,
     private: true,
 
     execute(client, message) {
