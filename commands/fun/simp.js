@@ -49,7 +49,6 @@ module.exports = {
 		data.push(attachment);
 		
 		if (!message.mentions.users.size) {
-			
 			return message.author.send(data, { split: true })
 			.then(() => {
 
@@ -69,6 +68,7 @@ module.exports = {
 			});
 			
 		} else {
+			if (message.author.bot || message.channel.type === 'dm') return
 			
 			const member = message.mentions.members.first();
 			return member.send(data, { split: true })
