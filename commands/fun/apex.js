@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const fetch = require('node-fetch');
 
 module.exports = {
     name: 'apex',
@@ -214,8 +215,6 @@ module.exports = {
 			}
 			
 			if (get(gameplay) === "drop") {
-				const fetch = require('node-fetch');
-
 				fetch('https://api.mozambiquehe.re/maprotation?auth=kRcGUSYHry5UthHzscvO')
                     .then(res => res.json())
                     .then(json => {
