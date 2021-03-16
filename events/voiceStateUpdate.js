@@ -7,7 +7,7 @@ module.exports = (client, oldState, newState) => {
     if(oldUserChannel === null && newUserChannel !== null) {
         if (newState.channel.name != 'Join to Create') return
 
-        newState.guild.channels.create(`${newState.member.user.username}\'s Channel᲼`, { //There is a whitespace character after 'Channel'.
+        newState.guild.channels.create(`${newState.member.user.username}\’s Channel`, { //There is a whitespace character after 'Channel'.
             type: 'voice',
             permissionOverwrites: [
                 {
@@ -25,7 +25,7 @@ module.exports = (client, oldState, newState) => {
                         {
                             type: 'member',
                             id: newState.member.id,
-                            allow: 17825808
+                            allow: 17825792
                         },
                         {
                             type: 'role',
@@ -42,9 +42,10 @@ module.exports = (client, oldState, newState) => {
         var vcSize = oldState.channel.members.size
         
         if (vcSize === 0) {
-            const whitespace = '᲼';
+            const endChars = '’s Channel';
+            const lastChars = endChars.slice(endChars.length - 10)
 
-            if (oldState.channel.name[oldState.channel.name.length - 1] == whitespace) {
+            if (lastChars == endChars) {
                 oldState.channel.delete();
             }
         }
