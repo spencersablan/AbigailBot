@@ -80,6 +80,12 @@ filter <filter>, add / remove filter.
 filters, see filters.
 ```
 
+### 📦 Other Fearues
+
+- Join to Create
+    - Any Voice Channel named 'Join to Create' will create extra channels.
+    - These channels will automatically delete when there are no users.
+
 ### 🏓 Utilities (to change the code)
 
 Find all the functions available on the official code [right here](https://github.com/Androz2091/discord-player).
