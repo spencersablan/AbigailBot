@@ -11,7 +11,8 @@ module.exports = {
 			const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === userEmoji);
 			message.channel.messages
 			 .fetch({ limit: 2 })
-			 .then((messages) => messages.last().react(reactionEmoji));
+			 .then((messages) => messages.last().react(reactionEmoji))
+			 .catch(console.error);
 		}
 		
 		message.delete()
