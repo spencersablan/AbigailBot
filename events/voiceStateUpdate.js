@@ -7,7 +7,7 @@ module.exports = (client, oldState, newState) => {
     if(oldUserChannel === null && newUserChannel !== null) {
         if (newState.channel.name != 'Join to Create') return
 
-        newState.guild.channels.create(`${newState.member.user.username}\’s Channel`, { //There is a whitespace character after 'Channel'.
+        newState.guild.channels.create(`${newState.member.user.username}\’s Channel`, {
             type: 'voice',
             permissionOverwrites: [
                 {
@@ -39,15 +39,19 @@ module.exports = (client, oldState, newState) => {
                 .catch(error => console.log(error));
 		});
     } else if(newUserChannel === null) {
-        var vcSize = oldState.channel.members.size
-        
-        if (vcSize === 0) {
-            const endChars = '’s Channel';
-            const lastChars = endChars.slice(endChars.length - 10)
 
-            if (lastChars == endChars) {
-                oldState.channel.delete();
+        if (!oldState.channel === null) { //Makes sure channel is not a stage channel.
+            var vcSize = oldState.channel.members.size
+        
+            if (vcSize === 0) {
+                const endChars = '’s Channel';
+                const lastChars = endChars.slice(endChars.length - 10)
+    
+                if (lastChars == endChars) {
+                    oldState.channel.delete();
+                }
             }
+
         }
     }  
 };
