@@ -40,7 +40,8 @@ module.exports = (client, oldState, newState) => {
 		});
     } else if(newUserChannel === null) {
 
-        if (!oldState.channel === null) { //Makes sure channel is not a stage channel.
+        console.log(oldState.channel);
+        if (oldState.channel !== null) { //Makes sure channel is not a stage channel.
             var vcSize = oldState.channel.members.size
         
             if (vcSize === 0) {
