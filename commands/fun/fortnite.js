@@ -80,6 +80,7 @@ module.exports = {
             "Mechanical Explosive Bow":1,
             "Mechanical Shockwave Bow":1,
             "Harpoon Gun":2,
+			"Recycler":2,
 		}
 
 		const otherInventory = {
