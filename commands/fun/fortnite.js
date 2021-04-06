@@ -87,24 +87,29 @@ module.exports = {
 			"You can only use 1 gun.":1,
 			"No guns allowed. You may use throwables and your pickaxe.":1,
 			"Only use a single ammo type.":1,
+			"Metal builds only.":1,
 			"No crafting or upgrading.":1,
-			"No 2 inventory slots.":1,
-			"No shield.":1,
+			"Only use 2 inventory slots.":1,
+			"Only use 3 inventory slots.":1,
 			"No health regeneration.":1,
 			"Uncommon and below gear.":1,
+			"One chest challenge":1,
 			"Chests only, no floor loot or death looting.":1,
 			"Floor loot only, no death looting or chests.":1,
 			"Death looting only, no chests or floor loot.":1,
 		}
 
 		const gameplayInteract = {
-			"No building":1,
-			"No shooting":1,
-            "Only fishing loot":1,
-			"No using ADS":1,
-			"You may not use mobility tools":1,
-			"Push every team you are aware of":1,
-			"No communication with your team":1,
+			"No building.":1,
+			"Do not use your Harvesting Tool.":1,
+			"You have to pickaxe players before you can shoot them.":1,
+			"Skybase!.":1,
+            "Only fishing loot.":1,
+			"No using ADS.":1,
+			"No shield.":1,
+			"You may not use mobility tools.":1,
+			"Push every team you are aware of.":1,
+			"No communication with your team.":1,
 		}
 
 		//Finally to real code!
