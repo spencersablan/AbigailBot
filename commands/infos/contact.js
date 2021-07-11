@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const { strike } = require('ffmpeg-static');
 
 module.exports = {
     name: 'contact',
@@ -27,7 +26,7 @@ module.exports = {
             .setColor('#0099ff');
 
         const cancelEmbed = new Discord.MessageEmbed()
-            .addField(`${client.emotes.off} - Contact`, `Your cancelled your contact request.`)
+            .addField(`${client.emotes.off} - Contact`, `You cancelled your contact request.`)
             .setColor('#0099ff');
 
         message.channel.send(contactEmbed).then((message) => {
@@ -66,17 +65,23 @@ module.exports = {
                                         .setFooter(`${ogMessage.author.tag}`)
                                         .setTimestamp();
         
-                                    if (reaction.emoji.name === '🇦') {
-                                        var channel = await client.channels.fetch(client.setChannels.discordSuggestions);
-                                    } else if (reaction.emoji.name === '🇧') {
-                                        var channel = await client.channels.fetch(client.setChannels.botSuggestions);
-                                    } else if (reaction.emoji.name === '🇨') {
-                                        var channel = await client.channels.fetch(client.setChannels.botBugReports);
-                                    } else if (reaction.emoji.name === '🇩') {
-                                        var channel = await client.channels.fetch(client.setChannels.userReports);
-                                    } else if (reaction.emoji.name === '🇪') {
-                                        var channel = await client.channels.fetch(client.setChannels.otherContact);
+                                    switch(reaction.emoji.name) {
+                                        case '🇦':
+                                            var channel = await client.channels.fetch(client.setChannels.discordSuggestions);
+                                            break;
+                                        case '🇧':
+                                            var channel = await client.channels.fetch(client.setChannels.botSuggestions);
+                                            break;
+                                        case '🇨':
+                                            var channel = await client.channels.fetch(client.setChannels.botBugReports);
+                                            break;
+                                        case '🇩':
+                                            var channel = await client.channels.fetch(client.setChannels.userReports);
+                                            break;
+                                        case '🇪':
+                                            var channel = await client.channels.fetch(client.setChannels.otherContact); 
                                     }
+                                    
                                     channel.send(embed1)
                 
                                     message.channel.send(successEmbed)

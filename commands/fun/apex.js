@@ -5,7 +5,7 @@ module.exports = {
     name: 'apex',
     aliases: ['a'],
     category: 'Fun',
-	utilisation: '{prefix}apex <character, inventory, gameplay>',
+	utilisation: '{prefix}apex < legend, legendType, weapon, weaponType, inventory, interact, drop >',
 
     execute(client, message, args) {
 		function outputChallenge(chalText,chalCat) {
@@ -29,7 +29,7 @@ module.exports = {
 			return array[Math.floor(Math.random() * array.length)];
 		}
 
-		const specificCharacter = {
+		const legend = {
 			"Bloodhound":2,
 			"Gibraltar":3,
 			"Lifeline":3,
@@ -46,25 +46,17 @@ module.exports = {
 			"Rampart":2,
 			"Horizon":2,
 			"Fuse":1,
+			"Valkyrie":1,
 		}
 
-		const broadCharacter = {
+		const legendType = {
 			"Attacker":1,
 			"Defender":3,
 			"Recon":4,
 			"Support":3,
 		}
 
-		const classWeapon = {
-			"Snipers":2,
-			"LMGs":1,
-			"SMGs":1,
-			"Assault Rifles":1,
-			"Shotguns":2,
-			"Pistols":3,
-		}
-
-		const specificWeapon = {
+		const weapon = {
 			"Havoc rifle":2,
 			"VK-47 Flatline":1,
 			"G7 Scout":1,
@@ -82,17 +74,28 @@ module.exports = {
 			"Longbow DMR":1,
 			"Kraber .50-Cal Sniper":2,
 			"Sentinel":1,
-			"Triple Take":1,
+			"Triple Take":2,
 			"EVA-8 Auto":1,
 			"Mastiff Shotgun":1,
 			"Mozambique Shotgun":2,
-			"Peacekeeper":2,
+			"Peacekeeper":1,
 			"RE-45 Auto":1,
 			"P2020":2,
 			"Wingman":1,
+			"Bocek Compound Bow":2,
 		}
 
-		const otherInventory = {
+		const weaponType = {
+			"Snipers":2,
+			"LMGs":1,
+			"SMGs":1,
+			"Assault Rifles":1,
+			"Shotguns":2,
+			"Pistols":3,
+			"Marksman weapons":2,
+		}
+
+		const inventory = {
 			"You can only use 1 gun.":1,
 			"No guns allowed. You may use grenades and your fists.":1,
 			"Only use a single ammo type.":1,
@@ -105,6 +108,15 @@ module.exports = {
 			"Supply bins only, no floor loot or death boxes.":1,
 			"Floor loot only, no death boxes or supply bins.":1,
 			"Death boxes only, no supply bins or floor loot.":1,
+		}
+
+		const interact = {
+			"No tactical ability":1,
+			"No ultimate ability":1,
+			"No using ADS":1,
+			"You may not use mobility tools":1,
+			"Push every team you are aware of":1,
+			"No communication with your team":1,
 		}
 
 		const kingsCanyon = {
@@ -150,83 +162,90 @@ module.exports = {
 			"Grow Towers":1,
 			"Gardens":1,
 			"Rift":1,
+			"Icarus":1,
 		}
 
-		const gameplayInteract = {
-			"No tactical ability":1,
-			"No ultimate ability":1,
-			"No using ADS":1,
-			"You may not use mobility tools":1,
-			"Push every team you are aware of":1,
-			"No communication with your team":1,
+		const worldsEdge = {
+			"Hot Zone":1,
+			"Trials":1,
+			"Skyhook":1,
+			"Countdown":1,
+			"Lava Fissure":1,
+			"The Train Yard":1,
+			"Staging":1,
+			"Thermal Station":1,
+			"The Tree":1,
+			"Sorting Factory":1,
+			"Harvester":1,
+			"Fragment West":1,
+			"Fragment East":1,
+			"The Epicenter":1,
+			"Survey Camp":1,
+			"Refinery":1,
+			"Overlook":1,
+			"The Geyser":1,
+			"Lava City":1,
+			"The Dome":1,
+			"Launch Site":1,
 		}
 
 		//Finally to real code!
-
-		const chosenCategory = args[0];
 		
-		var overallCategory = {
-			"character":2,
-			"inventory":2,
-			"gameplay":1
+		const categories = {
+			"legend":2,
+			"legendType":3,
+			"weapon":2,
+			"weaponType":2,
+			"inventory":1,
+			"interact":1,
+			"drop":4,
 		}
 
-		if (['character','inventory','gameplay'].includes(chosenCategory)) {
-			var selected = chosenCategory
-		} else {
-			var selected = get(overallCategory);
-		}
+		generateChallenge(args[0]);
 
-		if (selected === "character") {	
-            const character = {
-                "specificCharacter":1,
-                "broadCharacter":1,
-            }
+		function generateChallenge(selected) {
 
-			if (get(character) === "specificCharacter") {
-				outputChallenge(`You have to play as ${get(specificCharacter)}.`,`${client.emotes.character} Character`);
-			} else {
-				outputChallenge(`Play the round as any ${get(broadCharacter)}.`,`${client.emotes.character} Character`);
-			}
-		}
-		
-		if (selected === "inventory") {
-            const inventory = {
-                "classWeapon":3,
-                "specificWeapon":1,
-                "otherInventory":2,
-            }
+			switch (selected) {
 
-			const inventorySelected = get(inventory);
-			
-			if (inventorySelected === "classWeapon") {
-				outputChallenge(`You can only use ${get(classWeapon)}.`,`${client.emotes.inventory} Inventory`);
-			} else if (inventorySelected === "specificWeapon") {
-				outputChallenge(`You can only use the ${get(specificWeapon)}.`,`${client.emotes.inventory} Inventory`);
-			} else if (inventorySelected === "otherInventory") {
-				outputChallenge(`${get(otherInventory)}`,`${client.emotes.inventory} Inventory`);
-			}
-		}
-		
-		if (selected === "gameplay") {
-            const gameplay = {
-				"drop":3,
-				"interact":1,
-			}
-			
-			if (get(gameplay) === "drop") {
-				fetch('https://api.mozambiquehe.re/maprotation?auth=kRcGUSYHry5UthHzscvO')
-                    .then(res => res.json())
-                    .then(json => {
-                        const currentMap = json;
-                        if (currentMap.current.map === "Kings Canyon") {
-                            outputChallenge(`You have to land ${get(kingsCanyon)}.`,`${client.emotes.gameplay} Gameplay`);
-                        } else {
-                            outputChallenge(`You have to land ${get(olympus)}.`,`${client.emotes.gameplay} Gameplay`);
-                        }
-                    })	
-			} else {
-				outputChallenge(`${get(gameplayInteract)} while playing as ${get(specificCharacter)}`,`${client.emotes.gameplay} Gameplay`);
+				default:
+					generateChallenge(get(categories));
+					break;
+				case "legend":
+					outputChallenge(`You have to play as ${get(legend)}.`,`${client.emotes.character} Character`);
+					break;
+				case "class":
+					outputChallenge(`Play the round as any ${get(legendType)}.`,`${client.emotes.character} Character`);
+					break;
+				case "weapon":
+					outputChallenge(`You can only use the ${get(weapon)}.`,`${client.emotes.inventory} Inventory`);
+					break;
+				case "weaponType":
+					outputChallenge(`You can only use ${get(weaponType)}.`,`${client.emotes.inventory} Inventory`);
+					break;
+				case "inventory":
+					outputChallenge(`${get(inventory)}`,`${client.emotes.inventory} Inventory`);
+					break;
+				case "interact":
+					outputChallenge(`${get(interact)} while playing as ${get(legend)}`,`${client.emotes.gameplay} Gameplay`);
+					break;
+				case "drop":
+					fetch('https://api.mozambiquehe.re/maprotation?auth=kRcGUSYHry5UthHzscvO')
+						.then(res => res.json())
+						.then(json => {
+							const currentMap = json;
+
+							switch (currentMap.current.map) {
+
+								case "Olympus":
+									outputChallenge(`You have to land ${get(olympus)}.`,`${client.emotes.gameplay} Gameplay`);
+									break;
+								case "World's Edge":
+									outputChallenge(`You have to land ${get(worldsEdge)}.`,`${client.emotes.gameplay} Gameplay`);
+									break;
+								case "Kings Canyon":
+									outputChallenge(`You have to land ${get(kingsCanyon)}.`,`${client.emotes.gameplay} Gameplay`)
+							}
+						})
 			}
 		}
 	}
