@@ -16,9 +16,9 @@ module.exports = {
 		}
 
 		if (isNaN(amount)) {
-			randInt = getRandInt(0, 6);
+			randInt = getRandInt(1, 6);
 		} else {
-			randInt = getRandInt(0, amount);
+			randInt = getRandInt(1, amount);
 		}
 
 		const rollEmbed = new Discord.MessageEmbed()
