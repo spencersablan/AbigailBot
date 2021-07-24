@@ -19,7 +19,6 @@ module.exports = {
                         { name: 'Bot', value: infos },
                         { name: 'Fun', value: fun },
 						{ name: 'Moderation', value: moderation },
-                        { name: 'Music', value: music },
                     ],
                     description: `For more information, use ${client.config.discord.prefix}help (the command). Example : ${client.config.discord.prefix}help ping.`,
                 },
