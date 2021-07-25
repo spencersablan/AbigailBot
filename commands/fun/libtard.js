@@ -3,12 +3,9 @@ const fetch = require('node-fetch');
 
 module.exports = {
     name: 'libtard',
-    aliases: ['tpusa'],
-    category: 'Fun',
-	utilisation: '{prefix}libtard <number>',
 
-    execute(client, message, args) {
-		const amount = parseInt(args[0]);
+    async execute(client, interaction) {
+        interaction.defer();
 
         (function loop() {
             fetch('https://www.reddit.com/r/toiletpaperusa/random.json')
@@ -21,13 +18,13 @@ module.exports = {
                         .setTitle(`${inputJson[0].data.children[0].data.title}`)
                         .setURL(`https://www.reddit.com${inputJson[0].data.children[0].data.permalink}`)
                         .setImage(inputJson[0].data.children[0].data.url_overridden_by_dest)
-                        .setColor('#0099ff');
+                        .setColor('#0099ff')
 
-                    message.channel.send(outputMeme);
+                    interaction.editReply({embeds: [outputMeme]});
                 } else {
                     loop();
-                };
+                }
             })
-        }());
+        }())
 	}
 };

@@ -1,9 +1,6 @@
 # Abigail-Bot
 Discord bot for The Nerd Herd server.
 
-This project is based on:
-https://github.com/ZerioDev/Music-bot
-
 ### ⚡ Installation
 
 Well, let's start by downloading the code.<br>
@@ -32,8 +29,4 @@ In the console, type `npm install` to install all dependencies.
 node index.js
 npm start #Indicated in package.json
 
-#With pm2
-pm2 start index.js --name "MusicBot"
-```
-
-All you have to do is turn on your bot!
+Now start the bot!

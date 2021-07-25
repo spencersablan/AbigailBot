@@ -2,37 +2,13 @@ module.exports = {
 
     //Rename this file to bot.js, and fill out the information below.
 
-    emojis: {
-        off: ':x:',
-        error: ':warning:',
-        queue: ':bar_chart:',
-        music: ':musical_note:',
-        success: ':white_check_mark:',
-        character: ':grinning:',
-        inventory: ':handbag:',
-        gameplay: ':video_game:',
-    },
-
     discord: {
         token: 'TOKEN',
-        prefix: 'PREFIX',
         activity: 'ACTIVITY',
     },
-
-    channels: {
-        discordSuggestions: 'CHANNEL-ID',
-        botSuggestions: 'CHANNEL-ID',
-        botBugReports: 'CHANNEL-ID',
-        userReports: 'CHANNEL-ID',
-        otherContact: 'CHANNEL-ID',
-    },
-
-    //Servers that can use private commands, add as many as needed.
-    guildOnly: [
-        'SERVER-ID',
-    ],
 
     apiKeys: {
         mozambiquehere: 'KEY',
     }
+
 };

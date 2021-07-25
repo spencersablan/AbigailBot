@@ -1,16 +1,9 @@
-const { Client, MessageAttachment } = require('discord.js');
 const Discord = require('discord.js');
 
 module.exports = {
     name: 'simp',
-    aliases: ['sub','dono'],
-    category: 'Fun',
-    utilisation: '{prefix}simp <user>',
 
-    execute(client, message) {
-		const data = [];
-		const { commands } = message.client;
-		
+    execute(client, interaction) {
 		const images = [
 			"https://i.imgur.com/PrQ0439.png",
 			"https://i.imgur.com/trK9fyy.jpg",
@@ -44,52 +37,16 @@ module.exports = {
 		
 		const image = images[Math.floor(Math.random() * images.length)];
 
-		const attachment = new MessageAttachment(image);
+		const imageEmbed = new Discord.MessageEmbed()
+			.setImage(image)
 
-		data.push(attachment);
-		
-		if (!message.mentions.users.size) {
-			return message.author.send(data, { split: true })
-			.then(() => {
-
-				const simpSuccessEmbed = new Discord.MessageEmbed()
-					.addField(`${client.emotes.success} - Simp`, `Thanks for the dono! I\'ve sent you a picture to show my gratitude.`)
-					.setColor('#0099ff');
-
-				message.channel.send(simpSuccessEmbed);
-			})
-			.catch(error => {
-				
-				const simpFailEmbed = new Discord.MessageEmbed()
-					.addField(`${client.emotes.error} - Simp`, `It seems like I can\'t DM you!`)
-					.setColor('#0099ff');
-				
-				message.channel.send(simpFailEmbed);
-			});
-			
-		} else {
-			if (message.author.bot || message.channel.type === 'dm') return
-			
-			const member = message.mentions.members.first();
-			return member.send(data, { split: true })
-			.then(() => {
-
-				const simpTagSuccessEmbed = new Discord.MessageEmbed()
-				.addField(`${client.emotes.success} - Simp`, `Thanks for the dono! A picture has been sent to **${member.displayName}** .`)
-				.setColor('#0099ff');
-
-				message.channel.send(simpTagSuccessEmbed);
-			})
-			.catch(error => {
-
-				const simpTagFailEmbed = new Discord.MessageEmbed()
-					.addField(`${client.emotes.error} - Simp`, `It seems like I can\'t DM **${member.displayName}** !`)
-					.setColor('#0099ff');
-
-				message.channel.send(simpTagFailEmbed);
-			});
-			
-		}
-		
+		return interaction.member.send({ embeds: [imageEmbed]})
+		.then(() => {
+			interaction.reply('Thanks for the dono! I\'ve sent you a picture to show my gratitude.');
+		})
+		.catch(error => {
+			console.log(error)
+			interaction.reply({content: 'It seems like I can\'t DM you!', ephemeral: true});
+		});
 	}
 }
