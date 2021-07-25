@@ -6,6 +6,7 @@ const client = new discord.Client({ disableMentions: 'everyone' });
 client.config = require('./config/bot');
 client.emotes = client.config.emojis;
 client.setChannels = client.config.channels;
+client.apiKeys = client.config.apiKeys;
 client.guildOnly = client.config.guildOnly;
 client.filters = client.config.filters;
 client.commands = new discord.Collection();

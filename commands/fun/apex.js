@@ -229,7 +229,7 @@ module.exports = {
 					outputChallenge(`${get(interact)} while playing as ${get(legend)}`,`${client.emotes.gameplay} Gameplay`);
 					break;
 				case "drop":
-					fetch('https://api.mozambiquehe.re/maprotation?auth=kRcGUSYHry5UthHzscvO')
+					fetch(`https://api.mozambiquehe.re/maprotation?auth=${client.apiKeys.mozambiquehere}`)
 						.then(res => res.json())
 						.then(json => {
 							const currentMap = json;

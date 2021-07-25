@@ -31,4 +31,8 @@ module.exports = {
     guildOnly: [
         'SERVER-ID',
     ],
+
+    apiKeys: {
+        mozambiquehere: 'KEY',
+    }
 };

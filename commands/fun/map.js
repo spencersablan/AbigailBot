@@ -9,7 +9,7 @@ module.exports = {
 
     execute(client, message, args) {
 
-		fetch('https://api.mozambiquehe.re/maprotation?version=2&auth=kRcGUSYHry5UthHzscvO')
+		fetch(`https://api.mozambiquehe.re/maprotation?version=2&auth=${client.apiKeys.mozambiquehere}`)
 		.then(res => res.json())
 		.then(json => {
 			const apiData = json;
