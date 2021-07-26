@@ -1,111 +1,49 @@
+const fs = require('fs');
+
 module.exports = async (client, message) => {
 	if (!client.application?.owner) await client.application?.fetch();
 
-    if (message.content.toLowerCase() === '!deploy' && message.author.id === client.application.owner.id) {
-        const data = [
-            {
-                name: 'apex',
-                description: "Generate a random Apex Legends challenge!",
-                options: [{
-                    name: 'category',
-                    type: 'STRING',
-                    description: 'Type of challenge to generate',
-                    choices: [
-                        {
-                            name: 'Legend',
-                            value: 'legend'
-                        },
-                        {
-                            name: 'Legend Class',
-                            value: 'legendType'
-                        },
-                        {
-                            name: 'Weapon',
-                            value: 'weapon'
-                        },
-                        {
-                            name: 'Weapon Type',
-                            value: 'weaponType'
-                        },
-                        {
-                            name: 'Inventory',
-                            value: 'inventory'
-                        },
-                        {
-                            name: 'Interact',
-                            value: 'interact'
-                        },
-                        {
-                            name: 'Drop',
-                            value: 'drop'
-                        }
-                    ]
-                }]
-            },
-            {
-                name: 'fortnite',
-                description: "Generate a random Fortnite Battle Royale challenge!",
-                options: [{
-                    name: 'category',
-                    type: 'STRING',
-                    description: 'Type of challenge to generate',
-                    choices: [
-                        {
-                            name: 'Weapon',
-                            value: 'weapon'
-                        },
-                        {
-                            name: 'Weapon Type',
-                            value: 'weaponType'
-                        },
-                        {
-                            name: 'Inventory',
-                            value: 'inventory'
-                        },
-                        {
-                            name: 'Interact',
-                            value: 'interact'
-                        },
-                        {
-                            name: 'Drop',
-                            value: 'drop'
-                        }
-                    ]
-                }]
-            },
-            {
-                name: 'libtard',
-                description: 'Sends a meme from /r/ToiletPaperUSA!'
-            },
-            {
-                name: 'map',
-                description: "Find the current Apex Legends maps!",
-            },
-            {
-                name: 'ping',
-                description: 'Replies with Pong!'
-            },
-            {
-                name: 'roll',
-                description: "Generate a random number!",
-                options: [{
-                    name: 'sides',
-                    type: 'INTEGER',
-                    description: 'How many sides on the die?',
-                }]
-            },
-            {
-                name: 'simp',
-                description: "Get a picture from Abigail herself!",
-            },
-        ];
+    if (message.content.toLowerCase() === '!deploy global' && message.author.id === client.application.owner.id) {
+        fs.readFile('./config/commands.json', 'utf8', function(err,data) {
+            if (err) {
+                return console.log(err);
+            }
 
-        client.guilds.cache.get('820390858414489640')?.commands.set(data);
-        client.application?.commands.set([]);
+            client.application.commands.set(JSON.parse(data));
+        })
+        message.reply('commands.json sent to all')
+    }
 
-        //client.guilds.cache.get('820390858414489640')?.commands.set([]);
-        //client.application?.commands.set(data);
+    if (message.content.toLowerCase() === '!deploy test' && message.author.id === client.application.owner.id) {
+        fs.readFile('./config/commands.json', 'utf8', function(err,data) {
+            if (err) {
+                return console.log(err);
+            }
 
-        message.reply('Success!')
+            client.guilds.cache.get('820390858414489640')?.commands.set(JSON.parse(data));
+        })
+        message.reply('commands.json sent to test server')
+    }
+
+    if (message.content.toLowerCase() === '!deploy global' && message.author.id === client.application.owner.id) {
+        fs.readFile('./config/commands.json', 'utf8', function(err,data) {
+            if (err) {
+                return console.log(err);
+            }
+
+            client.application.commands.set([]);
+        })
+        message.reply('integrations removed from all')
+    }
+
+    if (message.content.toLowerCase() === '!deploy test' && message.author.id === client.application.owner.id) {
+        fs.readFile('./config/commands.json', 'utf8', function(err,data) {
+            if (err) {
+                return console.log(err);
+            }
+
+            client.guilds.cache.get('820390858414489640')?.commands.set(JSON.parse(data));
+        })
+        message.reply('integrations removed from test server')
     }
 };
