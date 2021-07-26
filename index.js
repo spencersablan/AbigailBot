@@ -6,6 +6,7 @@ const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_INTEGRA
 
 client.config = require('./config/bot');
 client.apiKeys = client.config.apiKeys;
+client.servers = client.config.servers;
 client.commands = new Discord.Collection();
 
 fs.readdirSync('./commands').forEach(dirs => {

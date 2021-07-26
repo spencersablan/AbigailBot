@@ -11,4 +11,7 @@ module.exports = {
         mozambiquehere: 'KEY',
     }
 
+    servers: {
+        testServer: 'SERVER ID'
+    }
 };

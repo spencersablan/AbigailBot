@@ -20,12 +20,12 @@ module.exports = async (client, message) => {
                 return console.log(err);
             }
 
-            client.guilds.cache.get('820390858414489640')?.commands.set(JSON.parse(data));
+            client.guilds.cache.get(client.servers.testServer)?.commands.set(JSON.parse(data));
         })
         message.reply('commands.json sent to test server')
     }
 
-    if (message.content.toLowerCase() === '!deploy global' && message.author.id === client.application.owner.id) {
+    if (message.content.toLowerCase() === '!remove global' && message.author.id === client.application.owner.id) {
         fs.readFile('./config/commands.json', 'utf8', function(err,data) {
             if (err) {
                 return console.log(err);
@@ -36,13 +36,13 @@ module.exports = async (client, message) => {
         message.reply('integrations removed from all')
     }
 
-    if (message.content.toLowerCase() === '!deploy test' && message.author.id === client.application.owner.id) {
+    if (message.content.toLowerCase() === '!remove test' && message.author.id === client.application.owner.id) {
         fs.readFile('./config/commands.json', 'utf8', function(err,data) {
             if (err) {
                 return console.log(err);
             }
 
-            client.guilds.cache.get('820390858414489640')?.commands.set(JSON.parse(data));
+            client.guilds.cache.get(client.servers.testServer)?.commands.set([]);
         })
         message.reply('integrations removed from test server')
     }
