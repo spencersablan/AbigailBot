@@ -40,7 +40,7 @@ module.exports = {
 		const imageEmbed = new Discord.MessageEmbed()
 			.setImage(image)
 
-		return interaction.member.send({ embeds: [imageEmbed]})
+		return interaction.user.send({ embeds: [imageEmbed]})
 		.then(() => {
 			interaction.reply('Thanks for the dono! I\'ve sent you a picture to show my gratitude.');
 		})
