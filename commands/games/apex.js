@@ -51,7 +51,7 @@ module.exports = {
 					case "legend":
 						interaction.editReply(`You have to play as ${get(legend)}.`);
 						break;
-					case "class":
+					case "legendType":
 						interaction.editReply(`Play the round as any ${get(legendType)}.`);
 						break;
 					case "weapon":
