@@ -3,7 +3,7 @@ Discord bot for The Nerd Herd server.
 
 ### ⚡ Installation
 
-Well, let's start by downloading the code.<br>
+Start by downloading the code.<br>
 Go to the folder `config` then the file `bot.txt`.<br>
 For the bot to be able to start, please complete the file with your credentials as follows :
 
