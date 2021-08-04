@@ -4,7 +4,6 @@ module.exports = {
 
     discord: {
         token: 'TOKEN',
-        activity: 'ACTIVITY',
     },
 
     apiKeys: {
