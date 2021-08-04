@@ -10,12 +10,10 @@ For the bot to be able to start, please complete the file with your credentials 
 ```js
 discord: {
     token: 'TOKEN',
-    activity: 'ACTIVITY',
 }
 ```
 
 - `token`, the token of the bot available on the [Discord Developers](https://discordapp.com/developers/applications) section.
-- `activity`, the activity of the bot.
 
 Rename the file from `bot.txt` to `bot.js.`
 
