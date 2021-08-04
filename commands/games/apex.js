@@ -4,7 +4,7 @@ module.exports = {
     name: 'apex',
 
     async execute(client, interaction) {
-		interaction.defer();
+		await interaction.defer();
 
 		fetch('https://thegooddude22.github.io/abigailbot/apex')
 		.then(res => res.json())

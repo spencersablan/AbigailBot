@@ -16,6 +16,7 @@ module.exports = {
 				.setTitle('Apex Map')
 				.addField('**Battle Royale**', `   ${apiData.battle_royale.current.map} with ${apiData.battle_royale.current.remainingTimer} remaining.\nThen ${apiData.battle_royale.next.map} for ${apiData.battle_royale.next.DurationInMinutes} minutes.`)
 				.addField('**Arenas**', `   ${apiData.arenas.current.map} with ${apiData.arenas.current.remainingTimer} remaining.\nThen ${apiData.arenas.next.map} for ${apiData.arenas.next.DurationInMinutes} minutes.`)
+				.addField('**Ranked Arenas**', `   ${apiData.arenasRanked.current.map} with ${apiData.arenasRanked.current.remainingTimer} remaining.\nThen ${apiData.arenasRanked.next.map} for ${apiData.arenasRanked.next.DurationInMinutes} minutes.`)
 				.setColor('#0099ff')
 			
 			interaction.editReply({embeds: [outputEmbed]});
