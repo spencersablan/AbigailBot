@@ -72,6 +72,10 @@ module.exports = {
 										}
 									}
 								});
+
+								collector.on('end', collected => {
+									interaction.editReply({ components: [] })
+								});
 							})
 						break;
 					case "legendType":
@@ -110,6 +114,10 @@ module.exports = {
 											i.reply({ content: `This button isn't for you!`, ephemeral: true });
 										}
 									}
+								});
+
+								collector.on('end', collected => {
+									interaction.editReply({ components: [] })
 								});
 							})
 						break;
