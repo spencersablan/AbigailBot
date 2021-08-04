@@ -1,0 +1,6 @@
+# Node
+abigailBot.bat
+config/bot.js
+node_modules/
+package-lock.json
+.vscode/
