@@ -1,3 +1,4 @@
+const { MessageActionRow, MessageButton } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -49,7 +50,29 @@ module.exports = {
 						generateChallenge(get(categories));
 						break;
 					case "legend":
-						interaction.editReply(`You have to play as ${get(legend)}.`);
+						const legendRow = new MessageActionRow()
+						.addComponents(
+							new MessageButton()
+								.setCustomId('legendReroll')
+								.setLabel('🎲  Legend')
+								.setStyle('SECONDARY'),
+						)
+
+						interaction.editReply({ content: `You have to play as ${get(legend)}.`, components: [legendRow] });
+
+						interaction.fetchReply()
+							.then(message => {
+								const collector = message.createMessageComponentCollector({ componentType: 'BUTTON', time: 60000 });
+								collector.on('collect', i => {
+									if (i.customId === 'legendReroll') {
+										if (i.user.id === interaction.user.id) {
+											i.update(`You have to play as ${get(legend)}.`);
+										} else {
+											i.reply({ content: `This button isn't for you!`, ephemeral: true });
+										}
+									}
+								});
+							})
 						break;
 					case "legendType":
 						interaction.editReply(`Play the round as any ${get(legendType)}.`);
@@ -64,7 +87,31 @@ module.exports = {
 						interaction.editReply(`${get(inventory)}`);
 						break;
 					case "interact":
-						interaction.editReply(`${get(interact)} while playing as ${get(legend)}`);
+						const chosenInteract = get(interact);
+
+						const interactRow = new MessageActionRow()
+						.addComponents(
+							new MessageButton()
+								.setCustomId('interactReroll')
+								.setLabel('🎲  Legend')
+								.setStyle('SECONDARY'),
+						)
+
+						interaction.editReply({ content:`${chosenInteract} while playing as ${get(legend)}`, components: [interactRow] });
+
+						interaction.fetchReply()
+							.then(message => {
+								const collector = message.createMessageComponentCollector({ componentType: 'BUTTON', time: 60000 });
+								collector.on('collect', i => {
+									if (i.customId === 'interactReroll') {
+										if (i.user.id === interaction.user.id) {
+											i.update(`${chosenInteract} while playing as ${get(legend)}`);
+										} else {
+											i.reply({ content: `This button isn't for you!`, ephemeral: true });
+										}
+									}
+								});
+							})
 						break;
 					case "drop":
 						fetch(`https://api.mozambiquehe.re/maprotation?auth=${client.apiKeys.mozambiquehere}`)
