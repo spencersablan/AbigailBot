@@ -3,8 +3,4 @@ abigailBot.bat
 config/bot.js
 node_modules/
 package-lock.json
-<<<<<<< HEAD
 .vscode/
-=======
-.vscode/
->>>>>>> d77763a9553abd0c580edf19990b3f3f3a30e87b
