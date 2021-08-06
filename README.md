@@ -24,6 +24,7 @@ In the console, type `npm install` to install all dependencies.
 #With Node
 node index.js
 npm start #Indicated in package.json
+```
 
 Now start the bot!
 
