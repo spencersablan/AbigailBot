@@ -33,3 +33,18 @@ To register your slash commands, type `!deploy global` in a server your bot is i
 This may take a while, but eventually your commands will be ready to go.
 
 To modify your commands, go to /config/commands.json and modify the information. Remember to use `!deploy test` or `!deploy global` when you are done!
+
+### 👩🏻‍💻 Commands
+
+**Fun Commands**
+`/libtard` - Sends a meme from /r/ToiletPaperUSA
+`/roll` (Number) - Generate a random number!
+`/simp` - Get a picture from Abigail herself!
+
+**Game Commands**
+`/apex (Legend, Legend Class, Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Apex Legends challenge!
+`/fortnite (Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Fortnite Battle Royale challenge!
+`/map` - Find the current Apex Legends maps!
+
+**Information Commands**
+`/ping` - Replies with Pong!
