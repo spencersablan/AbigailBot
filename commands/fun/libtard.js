@@ -5,7 +5,7 @@ module.exports = {
     name: 'libtard',
 
     async execute(client, interaction) {
-        interaction.defer();
+        interaction.deferReply();
 
         (function loop() {
             fetch('https://www.reddit.com/r/toiletpaperusa/random.json')

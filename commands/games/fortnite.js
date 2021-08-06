@@ -4,7 +4,7 @@ module.exports = {
     name: 'fortnite',
 
     async execute(client, interaction) {
-		interaction.defer();
+		interaction.deferReply();
 
 		fetch('https://thegooddude22.github.io/abigailbot/fortnite')
 		.then(res => res.json())

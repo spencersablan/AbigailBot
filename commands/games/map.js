@@ -5,7 +5,7 @@ module.exports = {
     name: 'map',
 
     async execute(client, interaction) {
-		interaction.defer();
+		interaction.deferReply();
 
 		fetch(`https://api.mozambiquehe.re/maprotation?version=2&auth=${client.apiKeys.mozambiquehere}`)
 		.then(res => res.json())
