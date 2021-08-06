@@ -38,14 +38,14 @@ To modify your commands, go to /config/commands.json and modify the information.
 ### 👩🏻‍💻 Commands
 
 **Fun Commands**
-`/libtard` - Sends a meme from /r/ToiletPaperUSA
-`/roll` (Number) - Generate a random number!
-`/simp` - Get a picture from Abigail herself!
+> `/libtard` - Sends a meme from /r/ToiletPaperUSA
+> `/roll` (Number) - Generate a random number!
+> `/simp` - Get a picture from Abigail herself!
 
 **Game Commands**
-`/apex (Legend, Legend Class, Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Apex Legends challenge!
-`/fortnite (Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Fortnite Battle Royale challenge!
-`/map` - Find the current Apex Legends maps!
+> `/apex (Legend, Legend Class, Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Apex Legends challenge!
+> `/fortnite (Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Fortnite Battle Royale challenge!
+> `/map` - Find the current Apex Legends maps!
 
 **Information Commands**
-`/ping` - Replies with Pong!
+> `/ping` - Replies with Pong!
