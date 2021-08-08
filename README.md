@@ -53,3 +53,11 @@ To modify your commands, go to /config/commands.json and modify the information.
 
 **Information Commands**
 > `/ping` - Replies with Pong!
+
+### 💡 Additional Features
+
+**Automatic Voice Channels**
+
+> Naming a voice channel `Join to Create` allows a flexible amount of voice channels.
+>
+> When someone joins the channel, they are automatically given a new voice channel that others can join. It is deleted when everyone leaves.

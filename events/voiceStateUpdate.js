@@ -1,57 +1,38 @@
-const Discord = require('discord.js');
+const { Discord, Permissions } = require('discord.js');
 
-module.exports = (client, oldState, newState) => {
-    var oldUserChannel = oldState.channel
-    var newUserChannel = newState.channel
+module.exports = async (client, oldState, newState) => {
 
-    if(oldUserChannel === null && newUserChannel !== null) {
-        if (newState.channel.name != 'Join to Create') return
+    if(newState.channel && newState.channel.name == 'Join to Create' && newState.channel.type == 'GUILD_VOICE') {
 
-        newState.guild.channels.create(`${newState.member.user.username}\’s Channel`, {
-            type: 'voice',
+        newState.guild.channels.create(`${newState.member.user.username}\'s Channel`, {
+            type: 'GUILD_VOICE',
+            parent: newState.channel.parent,
             permissionOverwrites: [
                 {
-                    type: 'role',
-                    id: newState.guild.roles.everyone.id,
-                    deny: 1024
-                }
+                    id: newState.member.id,
+                    allow: [
+                        Permissions.FLAGS.DEAFEN_MEMBERS,
+                        Permissions.FLAGS.MUTE_MEMBERS,
+                        Permissions.FLAGS.MOVE_MEMBERS,
+                    ],
+                },
             ],
+            reason: 'Auto Voice Channels'
         })
-        .catch(error => console.log(newState))
-		.then(channel=>{
-			channel.setParent(newState.channel.parent)
-				.finally(function(){    //move channel in voice category
-                    channel.overwritePermissions([
-                        {
-                            type: 'member',
-                            id: newState.member.id,
-                            allow: 17825792
-                        },
-                        {
-                            type: 'role',
-                            id: newState.guild.roles.everyone.id,
-                            allow: 1024
-                        }
-                    ])
-                    .then(() => {newState.setChannel(channel);})
-                    .catch(error => console.log(error));
-                })
-                .catch(error => console.log(error));
-		});
-    } else if(newUserChannel === null) {
+        .catch(error => console.log(error))
+        .then(channel => {newState.setChannel(channel);})
 
-        if (oldState.channel !== null) { //Makes sure channel is not a stage channel.
-            var vcSize = oldState.channel.members.size
+    } else if(newState.channel === null && oldState.channel.type == 'GUILD_VOICE') {
+
+        var vcSize = oldState.channel.members.size
         
-            if (vcSize === 0) {
-                const endChars = '’s Channel';
-                const lastChars = endChars.slice(endChars.length - 10)
-    
-                if (lastChars == endChars) {
-                    oldState.channel.delete();
-                }
-            }
+        if (vcSize === 0) {
+            const endChars = '’s Channel';
+            const lastChars = endChars.slice(endChars.length - 10)
 
+            if (lastChars == endChars) {
+                oldState.channel.delete();
+            }
         }
     }  
 };

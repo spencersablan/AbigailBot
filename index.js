@@ -2,7 +2,7 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { Client, Intents, MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
 
-const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_INTEGRATIONS'] });
+const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_INTEGRATIONS','GUILD_VOICE_STATES'] });
 
 client.config = require('./config/bot');
 client.apiKeys = client.config.apiKeys;
