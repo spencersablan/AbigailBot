@@ -12,16 +12,7 @@ module.exports = {
 		.then(json => {
 			const challenges = json;
 
-			const legend = challenges.legend
-			const legendType = challenges.legendType
-			const weapon = challenges.weapon
-			const weaponType = challenges.weaponType
-			const inventory = challenges.inventory
-			const interact = challenges.interact
-			const kingsCanyon = challenges.kingsCanyon
-			const olympus = challenges.olympus
-			const worldsEdge = challenges.worldsEdge
-			const categories = challenges.categories
+			const { legend, legendType, weapon, weaponType, inventory, interact, kingsCanyon, olympus, worldsEdge, categories } = challenges;
 
 			function get(input) {
 				let array = [];
