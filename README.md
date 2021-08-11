@@ -51,7 +51,7 @@ To modify your commands, go to /config/commands.json and modify the information.
 > > `search`
 > > > `user (member)` - Get the Apex Stats of a discord user!
 > > 
-> > > `name (username) (platform)` - Get the Apex Stats of any username!
+> > > `name [username] [platform]` - Get the Apex Stats of any username!
 >
 > > `link`
 > > > `set [username] [platform]` - Set your Apex username!
@@ -69,6 +69,10 @@ To modify your commands, go to /config/commands.json and modify the information.
 
 **Automatic Voice Channels**
 
-> Naming a voice channel `Join to Create` allows a flexible amount of voice channels.
->
-> When someone joins the channel, they are automatically given a new voice channel that others can join. It is deleted when everyone leaves.
+Naming a voice channel `Join to Create` allows a flexible amount of voice channels.
+
+When someone joins the channel, they are automatically given a new voice channel that others can join. It is deleted when everyone leaves.
+
+**Rules**
+
+Typing `!rules` will create a rule sheet in the current channel. Feel free to customize it however you want in `events/messageCreate.js`.
