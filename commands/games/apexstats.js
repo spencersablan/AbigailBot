@@ -100,14 +100,6 @@ module.exports = {
 				(async function removeAcc() {
 					const target = interaction.user;
 
-					var aFiltered = [];
-					for (var i = (aUsers.length - 1) ; i >= 0; i--) {
-						if (aUsers[i].type === "button") {
-							aFiltered.push(aUsers[i]);
-						}
-					}
-					aUsers = aFiltered;
-
 					const rowCount = await ApexUsers.destroy({ where: { user_id: target.id } });
 					if (!rowCount) return interaction.reply('You don\'t have an account set!');
 	
