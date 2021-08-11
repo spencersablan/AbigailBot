@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "discord.js": "^13.0.0",
-    "fetch": "^1.1.0"
+    "fetch": "^1.1.0",
+    "sequelize": "^6.6.5",
+    "sqlite3": "5.0.2"
   }
 }

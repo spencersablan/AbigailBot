@@ -1,6 +1,7 @@
 # Node
 abigailBot.bat
 config/bot.js
+database.sqlite
 node_modules/
 package-lock.json
 .vscode/

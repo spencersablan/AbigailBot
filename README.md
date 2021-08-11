@@ -22,8 +22,8 @@ In the console, type `npm install` to install all dependencies.
 - To start the bot :
 ```
 #With Node
+node dbInit.js //The first time
 node index.js
-npm start #Indicated in package.json
 ```
 
 Now start the bot!
@@ -39,16 +39,27 @@ To modify your commands, go to /config/commands.json and modify the information.
 
 **Fun Commands**
 > `/libtard` - Sends a meme from /r/ToiletPaperUSA
->
+
 > `/roll` (Number) - Generate a random number!
->
+
 > `/simp` - Get a picture from Abigail herself!
 
 **Game Commands**
 > `/apex (Legend, Legend Class, Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Apex Legends challenge!
+
+> `/apexstats`
+> > `search`
+> > > `user (member)` - Get the Apex Stats of a discord user!
+> > 
+> > > `name (username) (platform)` - Get the Apex Stats of any username!
 >
+> > `link`
+> > > `set [username] [platform]` - Set your Apex username!
+> >
+> > > `remove` - Unset your Apex username.
+
 > `/fortnite (Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Fortnite Battle Royale challenge!
->
+
 > `/map` - Find the current Apex Legends maps!
 
 **Information Commands**

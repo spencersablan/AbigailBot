@@ -93,5 +93,108 @@
     {
         "name": "simp",
         "description": "Get a picture from Abigail herself!"
+    },
+    {
+        "name": "apexstats",
+        "description": "Get Apex Legends stats!",
+        "options": [
+            {
+                "name": "search",
+                "type": "SUB_COMMAND_GROUP",
+                "description": "Search Apex Legends stats.",
+                "options": [
+                    {
+                        "name": "name",
+                        "type": "SUB_COMMAND",
+                        "description": "Get Apex Legends stats for a username.",
+                        "options": [
+                            {
+                                "name": "player",
+                                "type": "STRING",
+                                "description": "Username to get. PC players should use Origin account name.",
+                                "required": true
+                            },
+                            {
+                                "name": "platform",
+                                "type": "STRING",
+                                "description": "Platform this player plays on",
+                                "required": true,
+                                "choices": [
+                                    {
+                                        "name": "PC",
+                                        "value": "PC"
+                                    },
+                                    {
+                                        "name": "Xbox",
+                                        "value": "X1"
+                                    },
+                                    {
+                                        "name": "Playstation",
+                                        "value": "PS4"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "user",
+                        "type": "SUB_COMMAND",
+                        "description": "Get Apex Legends stats for a Discord user.",
+                        "options": [
+                            {
+                                "name": "player",
+                                "type": "USER",
+                                "description": "User to search. Only works if they have set their Apex account."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "link",
+                "type": "SUB_COMMAND_GROUP",
+                "description": "Set an Apex Legends username to you.",
+                "options": [
+                    {
+                        "name": "set",
+                        "type": "SUB_COMMAND",
+                        "description": "Set your Apex Legends username.",
+                        "options": [
+                            {
+                                "name": "username",
+                                "type": "STRING",
+                                "description": "Username to set. PC players should use Origin account name.",
+                                "required": true
+                            },
+                            {
+                                "name": "platform",
+                                "type": "STRING",
+                                "description": "Platform you play on",
+                                "required": true,
+                                "choices": [
+                                    {
+                                        "name": "PC",
+                                        "value": "PC"
+                                    },
+                                    {
+                                        "name": "Xbox",
+                                        "value": "X1"
+                                    },
+                                    {
+                                        "name": "Playstation",
+                                        "value": "PS4"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "remove",
+                        "type": "SUB_COMMAND",
+                        "description": "Remove your Apex Legends username."
+                    }
+                ]
+            }
+        ]
     }
 ]

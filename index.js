@@ -1,6 +1,8 @@
 const fs = require('fs');
+const { Sequelize } = require('sequelize');
 const Discord = require('discord.js');
-const { Client, Intents, MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
+const { Collection, Client, Formatters, Intents, MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
+const { ApexUsers } = require('./dbObjects.js');
 
 const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_INTEGRATIONS','GUILD_VOICE_STATES'] });
 
@@ -8,6 +10,8 @@ client.config = require('./config/bot');
 client.apiKeys = client.config.apiKeys;
 client.servers = client.config.servers;
 client.commands = new Discord.Collection();
+
+module.exports = { ApexUsers };
 
 fs.readdirSync('./commands').forEach(dirs => {
     const commands = fs.readdirSync(`./commands/${dirs}`).filter(files => files.endsWith('.js'));
