@@ -2,6 +2,12 @@ const { Discord, Permissions } = require('discord.js');
 
 module.exports = async (client, oldState, newState) => {
 
+    function sleep(ms) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, ms);
+        });
+    }  
+
     if(newState.channel && newState.channel.name == 'Join to Create' && newState.channel.type == 'GUILD_VOICE') {
 
         newState.guild.channels.create(`${newState.member.user.username}\'s Channel`, {
@@ -22,17 +28,20 @@ module.exports = async (client, oldState, newState) => {
         .catch(error => console.log(error))
         .then(channel => {newState.setChannel(channel);})
 
-    } else if(newState.channel === null && oldState.channel.type == 'GUILD_VOICE') {
+    }
 
-        var vcSize = oldState.channel.members.size
-        
-        if (vcSize === 0) {
-            const endChars = '’s Channel';
-            const lastChars = endChars.slice(endChars.length - 10)
+    if (oldState.channel && !oldState.channel.deleted && oldState.channel.type == 'GUILD_VOICE') {
+        if (oldState.channel.members.size === 0) {
+            const endChars = '\'s Channel';
+            const lastChars = oldState.channel.name.slice(-endChars.length)
 
             if (lastChars == endChars) {
                 oldState.channel.delete();
             }
         }
-    }  
+    }
+    
+    
+
+     
 };
