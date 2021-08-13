@@ -1,13 +1,13 @@
 const { Discord, Permissions } = require('discord.js');
 
-module.exports = async (client, oldState, newState) => {
-
+module.exports = async (client, oldState, newState) => { 
+  
     function sleep(ms) {
         return new Promise((resolve) => {
             setTimeout(resolve, ms);
         });
-    }  
-
+    }
+    
     if(newState.channel && newState.channel.name == 'Join to Create' && newState.channel.type == 'GUILD_VOICE') {
 
         newState.guild.channels.create(`${newState.member.user.username}\'s Channel`, {
@@ -23,25 +23,27 @@ module.exports = async (client, oldState, newState) => {
                     ],
                 },
             ],
-            reason: 'Auto Voice Channels'
+            reason: 'Creating Auto Voice'
         })
         .catch(error => console.log(error))
         .then(channel => {newState.setChannel(channel);})
 
     }
 
-    if (oldState.channel && !oldState.channel.deleted && oldState.channel.type == 'GUILD_VOICE') {
+    if (oldState.channel && oldState.channel.type == 'GUILD_VOICE') {
         if (oldState.channel.members.size === 0) {
             const endChars = '\'s Channel';
             const lastChars = oldState.channel.name.slice(-endChars.length)
 
             if (lastChars == endChars) {
-                oldState.channel.delete();
+                (async function init() {
+                    const oldChannel = await oldState.client.channels.fetch(oldState.channelId);
+                    await sleep(50);
+                    if (!oldChannel.deleted) {
+                        oldState.channel.delete('Removing Auto Voice');
+                    }
+                })()
             }
         }
-    }
-    
-    
-
-     
+    }  
 };
