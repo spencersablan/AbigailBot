@@ -7,7 +7,7 @@ module.exports = {
     async execute(client, interaction) {
 		await interaction.deferReply();
 
-		fetch('https://thegooddude22.github.io/abigailbot/apex')
+		fetch('https://thegooddude22.github.io/abigailbot/data/apex')
 		.then(res => res.json())
 		.then(json => {
 			const challenges = json;

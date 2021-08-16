@@ -6,12 +6,10 @@ module.exports = {
     async execute(client, interaction) {
 		interaction.deferReply();
 
-		fetch('https://thegooddude22.github.io/abigailbot/fortnite')
+		fetch('https://thegooddude22.github.io/abigailbot/data/fortnite')
 		.then(res => res.json())
 		.then(json => {
-			const challenges = json;
-
-			const { weapon, weaponType, inventory, interact, drop, categories } = challenges;
+			const { weapon, weaponType, inventory, interact, drop, categories } = json;
 
 			function get(input) {
 				let array = [];
