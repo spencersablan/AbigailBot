@@ -65,7 +65,9 @@ module.exports = {
 								});
 
 								collector.on('end', collected => {
-									interaction.editReply({ components: [] })
+									if (!message.deleted) {
+										interaction.editReply({ components: [] })
+									}
 								});
 							})
 						break;
@@ -108,7 +110,9 @@ module.exports = {
 								});
 
 								collector.on('end', collected => {
-									interaction.editReply({ components: [] })
+									if (!message.deleted) {
+										interaction.editReply({ components: [] })
+									}
 								});
 							})
 						break;
