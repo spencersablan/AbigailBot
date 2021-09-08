@@ -29,11 +29,14 @@ The instructions here are for using [Node.JS](https://nodejs.org/).
 
 ### ⚙️ Setup
 
-1. Invite your bot to a server. You can do this in the OAuth2 section of your bot on the [Discord Developers](https://discordapp.com/developers/applications) site. Make sure `bot` and `applications.commands` are enabled.
+1. Invite your bot to a server. You can do this in the OAuth2 section of your bot on the [Discord Developers](https://discordapp.com/developers/applications) site.
+    - Make sure `bot` and `applications.commands` are enabled.
+    - If it is a private bot, feel free to put the bot permissions to Administrator.
 2. To register your slash commands, type `!deploy test` or `!deploy global` in a server your bot is in.
     - `!deploy test` will add the slash commands to your test server instantly.
     - `!deploy global` will add them when Discord next caches them, and may take up to hour.
-3. To modify your commands, go to /config/commands.json and modify the information. Remember to use `!deploy test` or `!deploy global` when you are done!
+3. To modify your commands, go to /config/commands.json and modify the information.
+    - Remember to use `!deploy test` or `!deploy global` when you are done!
 
 ### 👩🏻‍💻 Commands
 
