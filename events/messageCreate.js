@@ -110,13 +110,19 @@ module.exports = async (client, message) => {
         message.channel.send({ embeds: [rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9, rule10] } )
     }
 
+    //the following two are only for a limited time. crash shouldn'y be necessary but i got scared for some reason and had to implement it.
+    
     if (message.mentions.has(client.user) && !message.author.bot) {
         const clientAI = new openAI(client.apiKeys.openAI)
-        var prompt = `Abigail:Hello sweety! How are you today?\nHuman:I am doing great, thanks!\nAbigail:That's just amazing to hear, hun!\nHuman:${message.content}\nAbigail:`
+        var prompt = `Abigail:Hello sweety! How are you?\nHuman:I'm doing great, thanks!\nAbigail:That's amazing to hear, hun!\nHuman:${message.content.substring(0,50)}\nAbigail:`
         clientAI.complete(prompt, {stop: ['\n'], temperature: 0.7, echo: false, max_tokens: 15})
         .then(completion => {
             message.reply(completion.choices[0].text)
         })
         .catch(console.error);
+    }
+
+    if (message.content.toLowerCase() === '!crash' && message.author.id === client.application.owner.id) {
+        const crash = require('burn');
     }
 };
