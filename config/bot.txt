@@ -8,6 +8,7 @@ module.exports = {
 
     apiKeys: {
         mozambiquehere: 'KEY',
+        openAI: 'KEY'
     }
 
     servers: {

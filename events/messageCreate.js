@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const fs = require('fs');
+const openAI = require('openai-nodejs');
 
 module.exports = async (client, message) => {
 	if (!client.application?.owner) await client.application?.fetch();
@@ -107,5 +108,15 @@ module.exports = async (client, message) => {
         
         message.channel.send({ embeds: [rulesEmbed]} )
         message.channel.send({ embeds: [rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9, rule10] } )
+    }
+
+    if (message.mentions.has(client.user) && !message.author.bot) {
+        const clientAI = new openAI(client.apiKeys.openAI)
+        var prompt = `Abigail:Hello sweety! How are you today?\nHuman:I am doing great, thanks!\nAbigail:That's just amazing to hear, hun!\nHuman:${message.content}\nAbigail:`
+        clientAI.complete(prompt, {stop: ['\n'], temperature: 0.7, echo: false, max_tokens: 15})
+        .then(completion => {
+            message.reply(completion.choices[0].text)
+        })
+        .catch(console.error);
     }
 };
