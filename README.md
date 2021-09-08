@@ -1,78 +1,78 @@
 # Abigail-Bot
-Discord bot for The Nerd Herd server.
+Discord bot for The Nerd Herd server.<br>
+The instructions here are for using [Node.JS](https://nodejs.org/).
 
 ### ⚡ Installation
 
-Start by downloading the code.<br>
-Go to the folder `config` then the file `bot.txt`.<br>
-For the bot to be able to start, please complete the file with your credentials as follows :
+1. Start by downloading the code.
+2. Go to the folder `config` then the file `bot.txt`.<br>
+    - For the bot to be able to start, please complete the file with your credentials as follows :
+        ```js
+        discord: {
+            token: 'TOKEN'
+        }
+        ```
+        `token`, the token of the bot available on the [Discord Developers](https://discordapp.com/developers/applications) section.
 
-```js
-discord: {
-    token: 'TOKEN',
-}
-```
+        ```js
+        servers: {
+            testServer: 'SERVER ID'
+        }
+        ```
+        `testServer`, the guild id of a server to test the bot. This is the server used to test slash commands.
 
-- `token`, the token of the bot available on the [Discord Developers](https://discordapp.com/developers/applications) section.
-
-Rename the file from `bot.txt` to `bot.js.`
-
-In the console, type `npm install` to install all dependencies.
-
-- To start the bot :
-```
-#With Node
-node dbInit.js //The first time
-node index.js
-```
-
-Now start the bot!
+3. Rename the file from `bot.txt` to `bot.js.`
+4. In the console, type `npm install` to install all dependencies.
+5. If you don't have a `database.sqlite` file in your directory, type `node dbInit.js`.
+6. Now start the bot with `node index.js`!
+    - This is the only command needed to run the bot in the future.
 
 ### ⚙️ Setup
 
-To register your slash commands, type `!deploy global` in a server your bot is in.
-This may take a while, but eventually your commands will be ready to go.
-
-To modify your commands, go to /config/commands.json and modify the information. Remember to use `!deploy test` or `!deploy global` when you are done!
+1. Invite your bot to a server. You can do this in the OAuth2 section of your bot on the [Discord Developers](https://discordapp.com/developers/applications) site. Make sure `bot` and `applications.commands` are enabled.
+2. To register your slash commands, type `!deploy test` or `!deploy global` in a server your bot is in.
+    - `!deploy test` will add the slash commands to your test server instantly.
+    - `!deploy global` will add them when Discord next caches them, and may take up to hour.
+3. To modify your commands, go to /config/commands.json and modify the information. Remember to use `!deploy test` or `!deploy global` when you are done!
 
 ### 👩🏻‍💻 Commands
 
 **Fun Commands**
-> `/libtard` - Sends a meme from /r/ToiletPaperUSA
+- `/libtard` - Sends a meme from /r/ToiletPaperUSA
 
-> `/roll` (Number) - Generate a random number!
+- `/roll` (Number) - Generate a random number!
 
-> `/simp` - Get a picture from Abigail herself!
+- `/simp` - Get a picture from Abigail herself!
 
 **Game Commands**
-> `/apex (Legend, Legend Class, Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Apex Legends challenge!
+- `/apex (Legend, Legend Class, Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Apex Legends challenge!
 
-> `/apexstats`
-> > `search`
-> > > `user (member)` - Get the Apex Stats of a discord user!
-> > 
-> > > `name [username] [platform]` - Get the Apex Stats of any username!
->
-> > `link`
-> > > `set [username] [platform]` - Set your Apex username!
-> >
-> > > `remove` - Unset your Apex username.
+- `/apexstats`
+    > `search`
+    > > `user (member)` - Get the Apex Stats of a discord user!
+    > 
+    > > `name [username] [platform]` - Get the Apex Stats of any username!
 
-> `/fortnite (Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Fortnite Battle Royale challenge!
+    > `link`
+    > > `set [username] [platform]` - Set your Apex username!
+    >
+    > > `remove` - Unset your Apex username.
 
-> `/map` - Find the current Apex Legends maps!
+- `/fortnite (Weapon, Weapon Type, Inventory, Interact, Drop)` - Generate a random Fortnite Battle Royale challenge!
+
+- `/map` - Find the current Apex Legends maps!
 
 **Information Commands**
-> `/ping` - Replies with Pong!
+- `/ping` - Replies with Pong!
 
 ### 💡 Additional Features
 
-**Automatic Voice Channels**
+- **Automatic Voice Channels**
 
-Naming a voice channel `Join to Create` allows a flexible amount of voice channels.
+    - Naming a voice channel `Join to Create` allows a flexible amount of voice channels.
 
-When someone joins the channel, they are automatically given a new voice channel that others can join. It is deleted when everyone leaves.
+    - When someone joins the channel, they are automatically given a new voice channel that others can join. It is deleted when everyone leaves.
 
-**Rules**
+- **Rules**
 
-Typing `!rules` will create a rule sheet in the current channel. Feel free to customize it however you want in `events/messageCreate.js`.
+    - Typing `!rules` will create a rule sheet in the current channel. Feel free to customize it however you want in `events/messageCreate.js`.
