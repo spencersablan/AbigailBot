@@ -7,6 +7,8 @@ module.exports = {
     async execute(client, interaction) {
         interaction.deferReply();
 
+        let i = 0;
+
         (function loop() {
             fetch('https://www.reddit.com/r/toiletpaperusa/random.json')
             .then(res => res.json())
@@ -22,7 +24,12 @@ module.exports = {
 
                     interaction.editReply({embeds: [outputMeme]});
                 } else {
-                    loop();
+                    if (i<5) {
+                        i++;
+                        loop();
+                    } else {
+                        interaction.editReply('There was an error fetching content. Try again later!');
+                    }
                 }
             })
         }())
