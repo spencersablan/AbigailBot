@@ -79,3 +79,7 @@ The instructions here are for using [Node.JS](https://nodejs.org/).
 - **Rules**
 
     - Typing `!rules` will create a rule sheet in the current channel. Feel free to customize it however you want in `events/messageCreate.js`.
+
+- **Talk with Abigail**
+
+    - Mentioning or replying to Abigail with text in your message will prompt her to respond using GPT-3!
