@@ -82,4 +82,4 @@ The instructions here are for using [Node.JS](https://nodejs.org/).
 
 - **Talk with Abigail**
 
-    - Mentioning or replying to Abigail with text in your message will prompt her to respond using GPT-3!
+    - Mentioning or replying to Abigail with text in your message will prompt her to respond using GPT-3.
