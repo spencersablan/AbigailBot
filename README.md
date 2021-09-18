@@ -71,6 +71,14 @@ The instructions here are for using [Node.JS](https://nodejs.org/).
 **Information Commands**
 - `/ping` - Replies with Pong!
 
+**Music Commands**
+- `/play` - Play a song!
+- `/skip` - Skip the current song in the queue!
+- `/queue (page)` - View the music queue for the server.
+- `/np` - Now Playing. Get information about the currently playing song.
+- `/cq` - Clear Queue. Clears everything in the music queue.
+- `/disconnect` - Disconnect from the current voice channel.
+
 ### 💡 Additional Features
 
 - **Automatic Voice Channels**
