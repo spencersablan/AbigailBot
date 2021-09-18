@@ -2,6 +2,7 @@ const fs = require('fs');
 const { Sequelize } = require('sequelize');
 const Discord = require('discord.js');
 const { Collection, Client, Formatters, Intents, MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
+const { Player } = require("discord-player");
 const { ApexUsers } = require('./dbObjects.js');
 
 const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_INTEGRATIONS','GUILD_VOICE_STATES'] });
@@ -9,6 +10,7 @@ const client = new Client({ intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_INTEGRA
 client.config = require('./config/bot');
 client.apiKeys = client.config.apiKeys;
 client.servers = client.config.servers;
+client.player = new Player(client);
 client.commands = new Discord.Collection();
 
 module.exports = { ApexUsers };
@@ -29,6 +31,14 @@ for (const file of events) {
     const event = require(`./events/${file}`);
     //console.log(`Loading discord.js event ${file}`);
     client.on(file.split(".")[0], event.bind(null, client));
+};
+
+const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
+
+for (const file of player) {
+    const event = require(`./player/${file}`);
+    //console.log(`Loading discord-player event ${file}`);
+    client.player.on(file.split(".")[0], event.bind(null, client));
 };
 
 client.login(client.config.discord.token);
