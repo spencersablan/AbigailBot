@@ -73,7 +73,7 @@ The instructions here are for using [Node.JS](https://nodejs.org/).
 
 **Music Commands**
 - `/play [query] (position)` - Play a song!
-- `/nowplay [query]` - Play a song immedietly!
+- `/nowplay [query]` - Play a song immediately!
 - `/skip` - Skip the current song in the queue!
 - `/seek` - Jump to part of a song.
 - `/queue (page)` - View the music queue for the server.
