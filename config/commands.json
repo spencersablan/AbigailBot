@@ -39,62 +39,6 @@
         }]
     },
     {
-        "name": "fortnite",
-        "description": "Generate a random Fortnite Battle Royale challenge!",
-        "options": [{
-            "name": "category",
-            "type": "STRING",
-            "description": "Type of challenge to generate",
-            "choices": [
-                {
-                    "name": "Weapon",
-                    "value": "weapon"
-                },
-                {
-                    "name": "Weapon Type",
-                    "value": "weaponType"
-                },
-                {
-                    "name": "Inventory",
-                    "value":"inventory"
-                },
-                {
-                    "name":"Interact",
-                    "value":"interact"
-                },
-                {
-                    "name": "Drop",
-                    "value": "drop"
-                }
-            ]
-        }]
-    },
-    {
-        "name": "libtard",
-        "description": "Sends a meme from /r/ToiletPaperUSA!"
-    },
-    {
-        "name": "map",
-        "description": "Find the current Apex Legends maps!"
-    },
-    {
-        "name": "ping",
-        "description": "Replies with Pong!"
-    },
-    {
-        "name": "roll",
-        "description": "Generate a random number!",
-        "options": [{
-            "name": "sides",
-            "type": "INTEGER",
-            "description": "How many sides on the die?"
-        }]
-    },
-    {
-        "name": "simp",
-        "description": "Get a picture from Abigail herself!"
-    },
-    {
         "name": "apexstats",
         "description": "Get Apex Legends stats!",
         "options": [
@@ -196,5 +140,123 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "fortnite",
+        "description": "Generate a random Fortnite Battle Royale challenge!",
+        "options": [{
+            "name": "category",
+            "type": "STRING",
+            "description": "Type of challenge to generate",
+            "choices": [
+                {
+                    "name": "Weapon",
+                    "value": "weapon"
+                },
+                {
+                    "name": "Weapon Type",
+                    "value": "weaponType"
+                },
+                {
+                    "name": "Inventory",
+                    "value":"inventory"
+                },
+                {
+                    "name":"Interact",
+                    "value":"interact"
+                },
+                {
+                    "name": "Drop",
+                    "value": "drop"
+                }
+            ]
+        }]
+    },
+    {
+        "name": "libtard",
+        "description": "Sends a meme from /r/ToiletPaperUSA!"
+    },
+    {
+        "name": "map",
+        "description": "Find the current Apex Legends maps!"
+    },
+    {
+        "name": "ping",
+        "description": "Replies with Pong!"
+    },
+    {
+        "name": "roll",
+        "description": "Generate a random number!",
+        "options": [{
+            "name": "sides",
+            "type": "INTEGER",
+            "description": "How many sides on the die?"
+        }]
+    },
+    {
+        "name": "simp",
+        "description": "Get a picture from Abigail herself!"
+    },
+    {
+        "name": "play",
+        "description": "Play a song!",
+        "options": [
+            {
+            "name": "query",
+            "type": "STRING",
+            "description": "What song shold be played?",
+            "required": true
+            },
+            {
+            "name": "position",
+            "type": "INTEGER",
+            "description": "Where to add the song?"
+            }
+        ]
+    },
+    {
+        "name": "nowplay",
+        "description": "Play a song immediately!",
+        "options": [{
+            "name": "query",
+            "type": "STRING",
+            "description": "What song shold be played?",
+            "required": true
+        }]
+    },
+    {
+        "name": "skip",
+        "description": "Skip the current song in the queue!"
+    },
+    {
+        "name": "np",
+        "description": "Now Playing. Get information about the currently playing song."
+    },
+    {
+        "name": "cq",
+        "description": "Clear Queue. Clears everything in the music queue."
+    },
+    {
+        "name": "disconnect",
+        "description": "Disconnect from the current voice channel."
+    },
+    {
+        "name": "queue",
+        "description": "View the music queue for the server.",
+        "options": [{
+            "name": "page",
+            "type": "INTEGER",
+            "description": "Queue page to check."
+        }]
+    },
+    {
+        "name": "seek",
+        "description": "Jump to part of a song.",
+        "options": [{
+            "name": "time",
+            "type": "STRING",
+            "description": "HH:MM:SS, MM:SS, or SS format.",
+            "required": true
+        }]
     }
 ]
