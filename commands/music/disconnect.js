@@ -7,7 +7,7 @@ module.exports = {
         const queue = client.player.getQueue(interaction.guildId);
         if (!queue) return interaction.reply({ content: "❌ | No music is being played!", ephemeral:true });
 
-        queue.destroy();
+        await queue.destroy();
         interaction.reply('↩️ | Left channel.');
 	}
 };

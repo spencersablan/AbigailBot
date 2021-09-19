@@ -11,7 +11,6 @@ module.exports = {
 
         const track = queue.current;
 
-
         if (track) {
             const np = new MessageEmbed()
                 .setTitle(track.title)

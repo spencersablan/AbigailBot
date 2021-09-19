@@ -72,8 +72,10 @@ The instructions here are for using [Node.JS](https://nodejs.org/).
 - `/ping` - Replies with Pong!
 
 **Music Commands**
-- `/play` - Play a song!
+- `/play [query] (position)` - Play a song!
+- `/nowplay [query]` - Play a song immedietly!
 - `/skip` - Skip the current song in the queue!
+- `/seek` - Jump to part of a song.
 - `/queue (page)` - View the music queue for the server.
 - `/np` - Now Playing. Get information about the currently playing song.
 - `/cq` - Clear Queue. Clears everything in the music queue.

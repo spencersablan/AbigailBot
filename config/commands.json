@@ -200,6 +200,23 @@
     {
         "name": "play",
         "description": "Play a song!",
+        "options": [
+            {
+            "name": "query",
+            "type": "STRING",
+            "description": "What song shold be played?",
+            "required": true
+            },
+            {
+            "name": "position",
+            "type": "INTEGER",
+            "description": "Where to add the song?"
+            }
+        ]
+    },
+    {
+        "name": "nowplay",
+        "description": "Play a song immediately!",
         "options": [{
             "name": "query",
             "type": "STRING",
@@ -230,6 +247,16 @@
             "name": "page",
             "type": "INTEGER",
             "description": "Queue page to check."
+        }]
+    },
+    {
+        "name": "seek",
+        "description": "Jump to part of a song.",
+        "options": [{
+            "name": "time",
+            "type": "STRING",
+            "description": "HH:MM:SS, MM:SS, or SS format.",
+            "required": true
         }]
     }
 ]

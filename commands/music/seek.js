@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'cq',
+	name: 'seek',
 
 	async execute(client, interaction) {
 		if (!interaction.member.voice.channelId) return await interaction.reply({ content: "❌ | You are not in a voice channel!", ephemeral: true });
@@ -7,7 +7,23 @@ module.exports = {
         const queue = client.player.getQueue(interaction.guildId);
         if (!queue ) return interaction.reply({ content: "❌ | No music is being played!", ephemeral:true });
 
-        await queue.clear();
-        interaction.reply('🎵 | Queue cleared.');
-	}
+        const time = interaction.options.get('time').value
+
+        function hmsToSecondsOnly(str) {
+            var p = str.split(':'),
+                s = 0, m = 1;
+        
+            while (p.length > 0) {
+                s += m * parseInt(p.pop(), 10);
+                m *= 60;
+            }
+        
+            return s;
+        }
+
+        const secTime = hmsToSecondsOnly(time);
+
+        await queue.seek(secTime * 1000)
+        interaction.reply(`↪️ | Jumped to ${time}!`);
+	},
 };
