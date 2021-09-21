@@ -1,10 +1,10 @@
 # Abigail-Bot
-Discord bot for The Nerd Herd server.<br>
 
 [![CodeQL](https://github.com/TheGoodDude22/AbigailBot/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/TheGoodDude22/AbigailBot/actions/workflows/codeql-analysis.yml)
 
 ### ⚡ Installation
-The instructions here are for using [Node.JS](https://nodejs.org/).
+
+This guide assumes you have [Node.JS](https://nodejs.org/) installed. Ensure you are using v16.6.0  or higher for  Discord.JS to work correctly. You can run `node -v`  in the terminal to check your version.
 
 1. Start by downloading the code.
 2. Go to the folder `config` then the file `bot.txt`.<br>
@@ -30,7 +30,6 @@ The instructions here are for using [Node.JS](https://nodejs.org/).
     - This is the only command needed to run the bot in the future.
 
 ### ⚙️ Setup
-The instructions here are for using [Node.JS](https://nodejs.org/).
 
 1. Invite your bot to a server. You can do this in the OAuth2 section of your bot on the [Discord Developers](https://discordapp.com/developers/applications) site.
     - Make sure `bot` and `applications.commands` are enabled.
