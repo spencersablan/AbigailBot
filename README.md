@@ -80,6 +80,7 @@ The instructions here are for using [Node.JS](https://nodejs.org/).
 - `/np` - Now Playing. Get information about the currently playing song.
 - `/cq` - Clear Queue. Clears everything in the music queue.
 - `/disconnect` - Disconnect from the current voice channel.
+- `/loop` - Sets loop mode.
 
 ### 💡 Additional Features
 

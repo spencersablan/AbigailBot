@@ -241,6 +241,36 @@
         "description": "Disconnect from the current voice channel."
     },
     {
+        "name": "loop",
+        "description": "Sets loop mode",
+        "options": [
+            {
+                "name": "mode",
+                "type": "INTEGER",
+                "description": "Loop type",
+                "required": true,
+                "choices": [
+                    {
+                        "name": "Off",
+                        "value": 0
+                    },
+                    {
+                        "name": "Track",
+                        "value": 1
+                    },
+                    {
+                        "name": "Queue",
+                        "value": 2
+                    },
+                    {
+                        "name": "Autoplay",
+                        "value": 3
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "name": "queue",
         "description": "View the music queue for the server.",
         "options": [{
